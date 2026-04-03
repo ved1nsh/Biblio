@@ -1,0 +1,45 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "biblio",
+            "request": "launch",
+            "type": "dart"
+        },
+        {
+            "name": "biblio (profile mode)",
+            "request": "launch",
+            "type": "dart",
+            "flutterMode": "profile"
+        },
+        {
+            "name": "biblio (release mode)",
+            "request": "launch",
+            "type": "dart",
+            "flutterMode": "release"
+        },
+        {
+            "name": "flutter_epub_viewer",
+            "cwd": "packages/flutter_epub_viewer",
+            "request": "launch",
+            "type": "dart"
+        },
+        {
+            "name": "flutter_epub_viewer (profile mode)",
+            "cwd": "packages/flutter_epub_viewer",
+            "request": "launch",
+            "type": "dart",
+            "flutterMode": "profile"
+        },
+        {
+            "name": "flutter_epub_viewer (release mode)",
+            "cwd": "packages/flutter_epub_viewer",
+            "request": "launch",
+            "type": "dart",
+            "flutterMode": "release"
+        }
+    ]
+}

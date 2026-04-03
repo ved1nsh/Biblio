@@ -1,0 +1,148 @@
+                            overflow: TextOverflow.ellipsis,
+                          ),
+                          SizedBox(height: 16 * widget.scale),
+                          Expanded(
+                          child: Row(
+                            children: [
+                              // Real book covers
+                              Expanded(
+                                child:
+                                    shelfBooksAsync.isLoading &&
+                                            widget.books.isEmpty
+                                        ? Center(
+                                          child: SizedBox(
+                                            width: 24 * widget.scale,
+                                            height: 24 * widget.scale,
+                                            child: CircularProgressIndicator(
+                                              color: Colors.white.withOpacity(
+                                                0.8,
+                                              ),
+                                              strokeWidth: 2.5,
+                                            ),
+                                          ),
+                                        )
+                                        : books.isEmpty
+                                        ? Center(
+                                          child: Text(
+                                            'No books yet',
+                                            style: TextStyle(
+                                              color: Colors.white.withOpacity(
+                                                0.8,
+                                              ),
+                                              fontFamily: 'SF-UI-Display',
+                                              fontSize: 14 * widget.scale,
+                                            ),
+                                          ),
+                                        )
+                                        : ListView.separated(
+                                          scrollDirection: Axis.horizontal,
+                                          physics:
+                                              const BouncingScrollPhysics(),
+                                          itemCount: books.length,
+                                          separatorBuilder:
+                                              (_, __) => SizedBox(
+                                                width: 12 * widget.scale,
+                                              ),
+                                          itemBuilder: (context, index) {
+                                            final book = books[index];
+                                            return AspectRatio(
+                                              aspectRatio: 1 / 1.45,
+                                              child: ClipRRect(
+                                                borderRadius:
+                                                    BorderRadius.circular(8),
+                                                child: Container(
+                                                  decoration: BoxDecoration(
+                                                    color: Colors.white
+                                                        .withOpacity(0.2),
+                                                  ),
+                                                  child:
+                                                      book.coverUrl != null
+                                                          ? Image.network(
+                                                            book.coverUrl!,
+                                                            fit: BoxFit.cover,
+                                                            errorBuilder:
+                                                                (
+                                                                  _,
+                                                                  __,
+                                                                  ___,
+                                                                ) => Icon(
+                                                                  Icons
+                                                                      .menu_book,
+                                                                  color: Colors
+                                                                      .white
+                                                                      .withOpacity(
+                                                                        0.5,
+                                                                      ),
+                                                                  size:
+                                                                      32 *
+                                                                      widget
+                                                                          .scale,
+                                                                ),
+                                                          )
+                                                          : Icon(
+                                                            Icons.menu_book,
+                                                            color: Colors.white
+                                                                .withOpacity(
+                                                                  0.5,
+                                                                ),
+                                                            size:
+                                                                32 *
+                                                                widget.scale,
+                                                          ),
+                                                ),
+                                              ),
+                                            );
+                                          },
+                                        ),
+                              ),
+                              SizedBox(width: 12 * widget.scale),
+                              // View Shelf button
+                              GestureDetector(
+                                onTap: widget.onViewShelf,
+                                child: Container(
+                                  width: (80 * widget.scale).roundToDouble(),
+                                  decoration: BoxDecoration(
+                                    color: Colors.white,
+                                    borderRadius: BorderRadius.circular(12),
+                                    boxShadow: [
+                                      BoxShadow(
+                                        color: Colors.black.withOpacity(0.1),
+                                        blurRadius: 4,
+                                        offset: const Offset(0, 2),
+                                      ),
+                                    ],
+                                  ),
+                                  child: Center(
+                                    child: Column(
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.center,
+                                      children: [
+                                        Icon(
+                                          Icons.arrow_forward,
+                                          color: baseColor,
+                                        ),
+                                        SizedBox(height: 4 * widget.scale),
+                                        Text(
+                                          'View\nShelf',
+                                          textAlign: TextAlign.center,
+                                          style: TextStyle(
+                                            color: baseColor,
+                                            fontWeight: FontWeight.bold,
+                                            fontSize: (12 * widget.scale).clamp(
+                                              10.0,
+                                              14.0,
+                                            ),
+                                            fontFamily: 'SF-UI-Display',
+                                          ),
+                                        ),
+                                      ],
+                                    ),
+                                  ),
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
