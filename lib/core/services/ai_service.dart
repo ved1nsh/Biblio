@@ -1,10 +1,10 @@
 import 'dart:convert';
 import 'package:flutter/foundation.dart';
 import 'package:google_generative_ai/google_generative_ai.dart';
+import 'package:flutter_dotenv/flutter_dotenv.dart';
 
 class AiService {
-  static const String _apiKey =
-      'YOUR_API_KEY_HERE'; // IMPORTANT: Use a .env file instead!
+  static final String _apiKey = dotenv.env['GEMINI_API_KEY'] ?? '';
   late final GenerativeModel _model;
   late final GenerativeModel _visionModel;
 

@@ -17,10 +17,14 @@ import 'package:biblio/features/gamification/widgets/achievement_unlock_dialog.d
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_native_splash/flutter_native_splash.dart';
 import 'package:path_provider/path_provider.dart';
+import 'package:flutter_dotenv/flutter_dotenv.dart';
 
 void main() async {
   WidgetsBinding widgetsBinding = WidgetsFlutterBinding.ensureInitialized();
   FlutterNativeSplash.preserve(widgetsBinding: widgetsBinding);
+
+  // Load environment variables
+  await dotenv.load(fileName: ".env");
 
   // Initialize Supabase
   await SupabaseService.initialize();
