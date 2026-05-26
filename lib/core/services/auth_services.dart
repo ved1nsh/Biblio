@@ -1,3 +1,4 @@
+import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
 import 'package:biblio/core/models/user_model.dart';
@@ -103,11 +104,16 @@ class AuthService {
 
 class SupabaseService {
   static Future<void> initialize() async {
-    await Supabase.initialize(
-      url: 'https://cmzyuepprdprxqytzxdi.supabase.co',
-      anonKey:
-          'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImNtenl1ZXBwcmRwcnhxeXR6eGRpIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjYzMjEyNjksImV4cCI6MjA4MTg5NzI2OX0.L57dE9u_gR1U2ZDLYHyauTx6rCY90RNlUYX-ZShFo0M', // Replace with your actual anon key
-    );
+    final url = dotenv.env['SUPABASE_URL'];
+    final anonKey = dotenv.env['SUPABASE_ANON_KEY'];
+
+    if (url == null || url.isEmpty || anonKey == null || anonKey.isEmpty) {
+      throw StateError(
+        'Missing SUPABASE_URL or SUPABASE_ANON_KEY in .env — see .env.example',
+      );
+    }
+
+    await Supabase.initialize(url: url, anonKey: anonKey);
   }
 
   static SupabaseClient get client => Supabase.instance.client;
