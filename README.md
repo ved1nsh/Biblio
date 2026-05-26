@@ -34,9 +34,9 @@ Biblio is a personal reading app that brings together everything a reader needs 
 
 | | |
 |:---:|:---:|
-| <img src="assets/readme/image.png" width="400" /> | <img src="assets/readme/8.png" width="400" /> |
-| <img src="assets/readme/12.png" width="400" /> | <img src="assets/readme/9.png" width="400" /> |
-| <img src="assets/readme/10.png" width="400" /> | <img src="assets/readme/11.png" width="400" /> |
+| <img src="assets/readme/8.png" width="400" /> | <img src="assets/readme/12.png" width="400" /> |
+| <img src="assets/readme/9.png" width="400" /> | <img src="assets/readme/10.png" width="400" /> |
+| <img src="assets/readme/11.png" width="400" /> | <img src="assets/readme/image.png" width="400" /> |
 
 
 ## Tech stack
